@@ -1,13 +1,13 @@
 //
-//  movie_library_everisUITests.swift
-//  movie-library-everisUITests
+//  MovieLibraryUITests.swift
+//  MovieLibraryUITests
 //
 //  Created by Elisa Camillo on 26/03/21.
 //
 
 import XCTest
 
-class movie_library_everisUITests: XCTestCase {
+class MovieLibraryUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,14 +1,14 @@
 //
-//  movie_library_everisTests.swift
-//  movie-library-everisTests
+//  MovieLibraryTests.swift
+//  MovieLibraryTests
 //
 //  Created by Elisa Camillo on 26/03/21.
 //
 
 import XCTest
-@testable import movie_library_everis
+@testable import MovieLibrary
 
-class movie_library_everisTests: XCTestCase {
+class MovieLibraryTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

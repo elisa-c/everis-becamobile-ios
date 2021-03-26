@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  movie-library-everis
+//  MovieLibrary
 //
 //  Created by Elisa Camillo on 26/03/21.
 //
