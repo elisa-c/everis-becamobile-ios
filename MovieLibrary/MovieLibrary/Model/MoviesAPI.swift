@@ -17,9 +17,12 @@ class MoviesAPI: NSObject {
         guard let url = URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=\(api_key)&language=pt-BR")
         else {return}
         
-        AF.request(url, method: .get).responseJSON { (data) in
-            print(data)
-          }
-        
+        AF.request(url)
+        .validate()
+        .responseDecodable(of: Movies.self) { (response) in
+            guard let movies = response.value else { return }
+            print(movies.results?[0].title)
+        }
+
     }
 }
