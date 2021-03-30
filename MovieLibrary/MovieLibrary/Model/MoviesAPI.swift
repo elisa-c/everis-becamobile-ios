@@ -11,10 +11,7 @@ import SwiftyJSON
 
 
 class MoviesAPI: NSObject {
-    
-    var movies:[Dictionary<String, Any>] = []
-    
-    
+        
     func retrieveTrendingMovies(completion: @escaping (_ movies: JSON) -> Void) {
         
         let api_key: String = "a3627ac6d1cea57a39a026d0d83a6a0a"
@@ -26,7 +23,6 @@ class MoviesAPI: NSObject {
             case .success(let value):
                 let json = JSON(value)
                 let moviesJSON = json["results"]
-//                   self.movies = moviesJSON
                 completion(moviesJSON)
 
             case .failure(let error):
