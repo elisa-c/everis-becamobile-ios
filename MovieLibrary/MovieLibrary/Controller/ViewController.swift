@@ -8,22 +8,34 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var trendingMoviesCollection: UICollectionView!
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movieList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let trendingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        // MARK: - TODO
+        return trendingCell
+    }
+    
+    // MARK: - Variables
     
     var movieList:[MovieObj] = []
-
     
-//    var movieTitle:String = ""
-//    var movieCover:String = ""
-//    var movieRating:Double = ""
-//    var movieOverview:String = ""
-//    var trendingMovies: [[String:Any]] = [[:]]
+    // MARK: - DidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+
         MoviesAPI().retrieveTrendingMovies{ (movies) in
+            
 
             for i in 0..<movies.count {
                 guard let movieTitle = movies[i]["title"].string else {return}
@@ -36,10 +48,8 @@ class ViewController: UIViewController {
                 print(self.movieList)
             }
             
-//            let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview)
-            print("smth")
-          
-//            print("------------------viewcontroller-------------------")
+
+// MARK: - Unused Code
 //            if let parsedTitle = movies[0]["title"].string {
 //                movieTitle = parsedTitle
 //                if let parsedCover = movies[0]["poster_path"].string {

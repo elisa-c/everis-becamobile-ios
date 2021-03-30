@@ -30,11 +30,17 @@ class MoviesAPI: NSObject {
             }
         }
 
-        
+}
+
+}
+
+// MARK: - Unused Code
+
+
 //        AF.request(url, method: .get).responseJSON{ (data) in
 //            print(data)
 //        }
-        
+
 //
 //        AF.request(url, method: .get).responseJSON() { (response) in
 //            switch response.result {
@@ -48,8 +54,8 @@ class MoviesAPI: NSObject {
 //            print(error)
 //            }
 //        }
-        
-        
+
+
 //
 //        if let jsonData = json.data(using: .utf8) {
 //        let movies = try? newJSONDecoder().decode(Movies.self, from: jsonData)
@@ -60,15 +66,15 @@ class MoviesAPI: NSObject {
 //            guard let movies = response.value else { return }
 //            print(movies)
 //          }
-    
+
 //}
-        
+
 //        if let url = URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=\(api_key)") {
 //            if let data = try? Data(contentsOf: url) {
 //                parse(json: data)
 //            }
 //        }
-        
+
 //
 //    func parse(json: Data)  {
 //        let decoder = JSONDecoder()
@@ -78,8 +84,3 @@ class MoviesAPI: NSObject {
 //        }
 //    }
 
-    
-
-}
-
-}
