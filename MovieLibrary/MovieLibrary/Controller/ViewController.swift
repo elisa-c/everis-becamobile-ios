@@ -19,6 +19,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Functions
     
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+
+        var rgbValue:UInt64 = 0
+        Scanner(string: cString).scanHexInt64(&rgbValue)
+
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
@@ -82,13 +105,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         print("main view loaded")
         
-        // changing bg color of the navigation area
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.blackTranslucent
-        self.navigationController?.navigationBar.barTintColor  = UIColor.red;
+        // changing bg color of the navigation area and hiding border
         
-        labelHome.backgroundColor = UIColor.black.withAlphaComponent(0)
+        let color1 = hexStringToUIColor(hex: "1D4350")
+        let color2 = hexStringToUIColor(hex: "FFFFFF")
+        
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barTintColor = color1;
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
 
-
+        labelHome.backgroundColor = UIColor(patternImage: UIImage(named: "gradient3")!)
         
         moviesTableView.delegate = self
         moviesTableView.dataSource = self

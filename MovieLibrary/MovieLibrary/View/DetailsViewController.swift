@@ -50,7 +50,10 @@ class DetailsViewController: UIViewController {
                 guard let url = URL(string: "http://image.tmdb.org/t/p/w500\(movieCoverPath)") else {return}
                 
                 self.imageDetails.af.setImage(withURL: url)
-
+//                self.imageDetails.layer.shadowColor = UIColor.white.cgColor
+//                self.imageDetails.layer.shadowOpacity = 1
+//                self.imageDetails.layer.shadowOffset = .zero
+//                self.imageDetails.layer.shadowRadius = 5
             }
             
             
