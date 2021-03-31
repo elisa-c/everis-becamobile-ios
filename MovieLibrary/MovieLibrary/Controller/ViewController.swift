@@ -26,20 +26,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! TableViewCell
         
         let movie = movieList[indexPath.row]
-        let title = movie.movieTitle
-        cell.labelTitle.text = title
+        
         let baseUrl = "https://image.tmdb.org/t/p/w500"
         let url = URL(string: baseUrl + movie.movieCover)!
+
         cell.posterCell.af.setImage(withURL: url)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0;
+        return 230;
     }
 
-    
-    
     // MARK: - Variables
     
     var movieList:[MovieObj] = []
