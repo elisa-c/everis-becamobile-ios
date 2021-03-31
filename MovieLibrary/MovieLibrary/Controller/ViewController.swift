@@ -28,9 +28,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movie = movieList[indexPath.row]
         let title = movie.movieTitle
         cell.labelTitle.text = "testee"
-        debugPrint(title)
+        debugPrint(cell.labelTitle.text)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0;
+    }
+
     
     
     // MARK: - Variables
