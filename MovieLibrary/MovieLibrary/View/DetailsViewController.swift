@@ -9,7 +9,14 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var labelDetailsTitle: UILabel!
+    
+    // MARK: - Variables
     var selectedMovieID: String = ""
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +29,14 @@ class DetailsViewController: UIViewController {
         print("loaded details view")
         MoviesAPI().retrieveMovieDetails(movieID: selectedMovieID, completion:{ (movie) in
             
-            guard let movieTitle = movie["title"].string else {return}
+            if let movieTitle = movie["title"].string {
+            print(movieTitle)
+                self.labelDetailsTitle?.text = movieTitle
+            }
             guard let movieRating = movie["vote_average"].double else {return}
             guard let movieOverview = movie["overview"].string else {return}
             
-            print(movieOverview)
+            
             })
     }
     

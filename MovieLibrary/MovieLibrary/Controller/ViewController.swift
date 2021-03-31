@@ -45,11 +45,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let selectedMovie = movieList[indexPath.row]
         let selectedID = String(selectedMovie.movieID)
         
-        let detailsViewController = DetailsViewController()
+        let detailsViewController = storyboard?.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
+
         
         detailsViewController.selectedMovieID = selectedID
         
-        navigationController?.pushViewController(detailsViewController, animated: true)
+        navigationController?.pushViewController(detailsViewController, animated: false)
 //       DetailsViewController().getSelectedMovie(sMovie: selectedMovie)
     }
     
