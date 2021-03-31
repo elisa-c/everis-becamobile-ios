@@ -41,8 +41,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let selectedMovie = movieList[indexPath.row]
-        DetailsViewController().getSelectedMovie(sMovie: selectedMovie)
+        let selectedID = String(selectedMovie.movieID)
+        
+        let detailsViewController = DetailsViewController()
+        
+        detailsViewController.selectedMovieID = selectedID
+        
+        navigationController?.pushViewController(detailsViewController, animated: true)
+//       DetailsViewController().getSelectedMovie(sMovie: selectedMovie)
     }
     
     
