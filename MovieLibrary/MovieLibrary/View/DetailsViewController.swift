@@ -21,7 +21,12 @@ class DetailsViewController: UIViewController {
     func getDetails() {
         print("loaded details view")
         MoviesAPI().retrieveMovieDetails(movieID: selectedMovieID, completion:{ (movie) in
-            print(movie)
+            
+            guard let movieTitle = movie["title"].string else {return}
+            guard let movieRating = movie["vote_average"].double else {return}
+            guard let movieOverview = movie["overview"].string else {return}
+            
+            print(movieOverview)
             })
     }
     
