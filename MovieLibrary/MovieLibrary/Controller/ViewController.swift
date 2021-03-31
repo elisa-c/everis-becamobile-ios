@@ -27,8 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let movie = movieList[indexPath.row]
         let title = movie.movieTitle
-        cell.labelTitle.text = "testee"
-        debugPrint(cell.labelTitle.text)
+        cell.labelTitle.text = title
+        let baseUrl = "https://image.tmdb.org/t/p/w500"
+        let url = URL(string: baseUrl + movie.movieCover)!
+        cell.posterCell.af.setImage(withURL: url)
         return cell
     }
     
