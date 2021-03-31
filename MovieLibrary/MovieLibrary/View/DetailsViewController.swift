@@ -39,13 +39,13 @@ class DetailsViewController: UIViewController {
             }
             if let movieRating = movie["vote_average"].double {
                 let movieRatingStr = String(movieRating)
-                self.labelDetailsRating?.text = movieRatingStr
+                self.labelDetailsRating?.text = "Rating: \(movieRatingStr)"
             }
             if let movieOverview = movie["overview"].string {
                 self.labelDetailsOverview?.text = movieOverview
             }
             
-            if let movieCoverPath = movie["poster_path"].string {
+            if let movieCoverPath = movie["backdrop_path"].string {
                 
                 guard let url = URL(string: "http://image.tmdb.org/t/p/w500\(movieCoverPath)") else {return}
                 

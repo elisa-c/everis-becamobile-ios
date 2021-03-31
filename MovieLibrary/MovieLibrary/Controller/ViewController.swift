@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var moviesTableView: UITableView!
     @IBOutlet weak var labelHome: UILabel!
+    @IBOutlet weak var titleContainer: UIView!
     
     // MARK: - Functions
     
@@ -53,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movie = movieList[indexPath.row]
         
         let baseUrl = "https://image.tmdb.org/t/p/w500"
-        let url = URL(string: baseUrl + movie.movieBackdrop)!
+        let url = URL(string: baseUrl + movie.movieCover)!
 
         cell.posterCell.af.setImage(withURL: url)
         
@@ -107,7 +108,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // changing bg color of the navigation area and hiding border
         
-        let color1 = hexStringToUIColor(hex: "1D4350")
+        let color1 = hexStringToUIColor(hex: "FBB53B")
         let color2 = hexStringToUIColor(hex: "FFFFFF")
         
         self.navigationController?.navigationBar.barStyle = .black
@@ -115,7 +116,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
 
-        labelHome.backgroundColor = UIColor(patternImage: UIImage(named: "gradient3")!)
+        labelHome.backgroundColor = color1
+        titleContainer.backgroundColor = color1
         
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
