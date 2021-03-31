@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - IBOutlets
     
     @IBOutlet weak var moviesTableView: UITableView!
+    @IBOutlet weak var labelHome: UILabel!
     
     // MARK: - Functions
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movie = movieList[indexPath.row]
         
         let baseUrl = "https://image.tmdb.org/t/p/w500"
-        let url = URL(string: baseUrl + movie.movieCover)!
+        let url = URL(string: baseUrl + movie.movieBackdrop)!
 
         cell.posterCell.af.setImage(withURL: url)
         
@@ -40,7 +41,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(movieList[indexPath.row].movieTitle)
+        let selectedMovie = movieList[indexPath.row]
+        DetailsViewController().getSelectedMovie(sMovie: selectedMovie)
     }
     
     
@@ -68,6 +70,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // changing bg color of the navigation area
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.blackTranslucent
+        self.navigationController?.navigationBar.barTintColor  = UIColor.red;
+        
+        labelHome.backgroundColor = UIColor.black.withAlphaComponent(0)
+
+
+        
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         
@@ -77,8 +87,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 guard let movieCover = movies[i]["poster_path"].string else {return}
                 guard let movieRating = movies[i]["vote_average"].double else {return}
                 guard let movieOverview = movies[i]["overview"].string else {return}
+                guard let movieBackdrop = movies[i]["backdrop_path"].string else {return}
                 
-                let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview)
+                let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview, backdrop: movieBackdrop)
                 self.movieList.append(eachMovie)
                 self.moviesTableView.reloadData()
             }

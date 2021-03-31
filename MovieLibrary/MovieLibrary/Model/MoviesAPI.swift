@@ -11,12 +11,12 @@ import SwiftyJSON
 
 
 class MoviesAPI: NSObject {
-        
+    
     func retrieveTrendingMovies(completion: @escaping (_ movies: JSON) -> Void) {
         
         let api_key: String = "a3627ac6d1cea57a39a026d0d83a6a0a"
         guard let url = URL(string: "https://api.themoviedb.org/3/trending/movie/week?api_key=\(api_key)") else {return}
-
+        
         
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -24,15 +24,33 @@ class MoviesAPI: NSObject {
                 let json = JSON(value)
                 let moviesJSON = json["results"]
                 completion(moviesJSON)
-
+                
             case .failure(let error):
                 print(error)
             }
         }
-
+        
+    }
+    
+    func retrieveMovieDetails(movieID:String, completion: @escaping (_ movies: JSON) -> Void) {
+        let api_key: String = "a3627ac6d1cea57a39a026d0d83a6a0a"
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=\(api_key))'&language=pt-BR)") else {return}
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let moviesJSON = json["results"]
+                completion(moviesJSON)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
 }
 
-}
 
 // MARK: - Unused Code
 
@@ -83,4 +101,3 @@ class MoviesAPI: NSObject {
 //            movies = jsonMovies.results
 //        }
 //    }
-

@@ -9,10 +9,25 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    var selectedMovie: MovieObj?
+    
+    
+    func getSelectedMovie(sMovie: MovieObj) -> MovieObj {
+        let selectedMovie = sMovie
+        print(selectedMovie.movieTitle)
+        return selectedMovie
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.getDetails()
+    }
+    
+    // MARK: - Functions
+    
+    func getDetails() {
+        //
+        print(selectedMovie?.movieTitle)
     }
     
 
