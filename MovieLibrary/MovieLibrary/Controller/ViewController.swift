@@ -7,22 +7,25 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var trendingMoviesCollection: UICollectionView!
+    @IBOutlet weak var moviesTableView: UITableView!
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    // MARK: - Functions
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let trendingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        // MARK: - TODO
-        return trendingCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //
     }
+    
     
     // MARK: - Variables
     
@@ -33,10 +36,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        moviesTableView.delegate = self
+        moviesTableView.dataSource = self
+        
         MoviesAPI().retrieveTrendingMovies{ (movies) in
-            
-
             for i in 0..<movies.count {
                 guard let movieTitle = movies[i]["title"].string else {return}
                 guard let movieCover = movies[i]["poster_path"].string else {return}
@@ -45,9 +48,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview)
                 self.movieList.append(eachMovie)
-                print(self.movieList)
             }
             
+
+            }
+            
+}
+}
+
 
 // MARK: - Unused Code
 //            if let parsedTitle = movies[0]["title"].string {
@@ -67,7 +75,3 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //            for movie in movies {
 //                print(movie.1["title"])
 //            }
-            }
-            
-}
-}
