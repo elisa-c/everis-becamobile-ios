@@ -14,13 +14,15 @@ class MovieObj: NSObject {
     var movieRating: Double
     var movieOverview: String
     var movieBackdrop: String
+    var movieID: Int
     
-    init(title:String, cover:String, rating:Double, overview:String, backdrop: String) {
+    init(title:String, cover:String, rating:Double, overview:String, backdrop: String, mID: Int) {
         self.movieTitle = title
         self.movieCover = cover
         self.movieRating = rating
         self.movieOverview = overview
         self.movieBackdrop = backdrop
+        self.movieID = mID
     }
     
     }

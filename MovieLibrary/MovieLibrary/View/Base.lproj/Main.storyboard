@@ -51,7 +51,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="posterCell" destination="qZr-rZ-56h" id="yfK-Tu-bpE"/>
-                                            <segue destination="Zxj-dO-ohf" kind="show" id="MiE-nO-vEP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

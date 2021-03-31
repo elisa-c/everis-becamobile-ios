@@ -88,8 +88,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 guard let movieRating = movies[i]["vote_average"].double else {return}
                 guard let movieOverview = movies[i]["overview"].string else {return}
                 guard let movieBackdrop = movies[i]["backdrop_path"].string else {return}
+                guard let movieID = movies[i]["id"].int else {return}
                 
-                let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview, backdrop: movieBackdrop)
+                let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview, backdrop: movieBackdrop, mID: movieID)
                 self.movieList.append(eachMovie)
                 self.moviesTableView.reloadData()
             }
