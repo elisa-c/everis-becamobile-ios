@@ -17,7 +17,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var labelDetailsTitle: UILabel!
     @IBOutlet weak var labelDetailsRating: UILabel!
     @IBOutlet weak var labelDetailsOverview: UILabel!
-    
+    @IBOutlet weak var textDetailsOverview: UITextView!
     // MARK: - Variables
     var selectedMovieID: String = ""
     
@@ -42,6 +42,7 @@ class DetailsViewController: UIViewController {
             }
             if let movieOverview = movie["overview"].string {
                 self.labelDetailsOverview?.text = movieOverview
+                self.textDetailsOverview?.text = movieOverview
             }
             
             if let movieCoverPath = movie["backdrop_path"].string {
