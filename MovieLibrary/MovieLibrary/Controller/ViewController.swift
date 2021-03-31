@@ -23,7 +23,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! TableViewCell
+        
+        let movie = movieList[indexPath.row]
+        let title = movie.movieTitle
+        cell.labelTitle.text = "testee"
+        debugPrint(title)
+        return cell
     }
     
     
@@ -48,30 +54,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview)
                 self.movieList.append(eachMovie)
+                self.moviesTableView.reloadData()
             }
             
 
             }
-            
+        
 }
 }
-
-
-// MARK: - Unused Code
-//            if let parsedTitle = movies[0]["title"].string {
-//                movieTitle = parsedTitle
-//                if let parsedCover = movies[0]["poster_path"].string {
-//                    movieCover = parsedCover
-//                    if let parsedRating = movies[0]["vote_average"].string {
-//                        movieRating = parsedRating
-//                        if let parsedOverview = movies[0]["overview"].string {
-//                            movieOverview = parsedOverview
-//                            let eachMovie = MovieObj(title: movieTitle, cover: movieCover, rating: movieRating, overview: movieOverview)
-//                            print(eachMovie.movieTitle)
-//                        }
-//                    }
-//                }
-//            }
-//            for movie in movies {
-//                print(movie.1["title"])
-//            }
