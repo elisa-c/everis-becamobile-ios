@@ -39,6 +39,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 230;
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(movieList[indexPath.row].movieTitle)
+    }
+    
+    
+    // MARK: - Animation
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
         cell.layer.transform = rotationTransform
@@ -49,6 +56,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.alpha = 1.0
         }
     }
+    
+    
 
     // MARK: - Variables
     
