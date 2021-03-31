@@ -31,7 +31,6 @@ class DetailsViewController: UIViewController {
     // MARK: - Functions
     
     func getDetails() {
-        print("loaded details view")
         MoviesAPI().retrieveMovieDetails(movieID: selectedMovieID, completion:{ (movie) in
             
             if let movieTitle = movie["title"].string {

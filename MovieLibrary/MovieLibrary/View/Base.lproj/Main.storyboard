@@ -118,26 +118,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yaC-51-ahd">
-                                <rect key="frame" x="20" y="365" width="374" height="194"/>
+                                <rect key="frame" x="20" y="345" width="374" height="102"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUR-lU-xH9" userLabel="LabelDetailsTitle">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="LSN-OX-mCW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejN-DC-9DU" userLabel="LabelDetailsRating">
-                                        <rect key="frame" x="0.0" y="120" width="374" height="27"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                        <rect key="frame" x="0.0" y="42" width="374" height="20"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d14-QT-NVO" userLabel="LabelDetailsOverview">
-                                        <rect key="frame" x="0.0" y="167" width="374" height="27"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d14-QT-NVO" userLabel="LabelDetailsOverview">
+                                        <rect key="frame" x="0.0" y="82" width="374" height="20"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -162,7 +159,7 @@
                             <constraint firstItem="D8V-W0-Jcj" firstAttribute="centerX" secondItem="Lap-Yz-nJk" secondAttribute="centerX" id="9LL-fi-R8P"/>
                             <constraint firstItem="D8V-W0-Jcj" firstAttribute="leading" secondItem="Lap-Yz-nJk" secondAttribute="leading" id="FOO-Jc-ujF"/>
                             <constraint firstItem="yaC-51-ahd" firstAttribute="leading" secondItem="Lap-Yz-nJk" secondAttribute="leading" constant="20" id="Nhu-4W-FZ0"/>
-                            <constraint firstItem="yaC-51-ahd" firstAttribute="top" secondItem="D8V-W0-Jcj" secondAttribute="bottom" constant="40" id="d6b-CN-9MT"/>
+                            <constraint firstItem="yaC-51-ahd" firstAttribute="top" secondItem="D8V-W0-Jcj" secondAttribute="bottom" constant="20" id="d6b-CN-9MT"/>
                             <constraint firstItem="D8V-W0-Jcj" firstAttribute="trailing" secondItem="Lap-Yz-nJk" secondAttribute="trailing" id="dPQ-XI-Jge"/>
                             <constraint firstItem="Lap-Yz-nJk" firstAttribute="trailing" secondItem="yaC-51-ahd" secondAttribute="trailing" constant="20" id="mrO-S1-6a4"/>
                         </constraints>

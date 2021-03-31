@@ -48,7 +48,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("creating cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! TableViewCell
         
         let movie = movieList[indexPath.row]
@@ -104,7 +103,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("main view loaded")
         
         // changing bg color of the navigation area and hiding border
         
