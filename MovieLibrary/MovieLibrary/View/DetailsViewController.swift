@@ -20,7 +20,9 @@ class DetailsViewController: UIViewController {
     
     func getDetails() {
         print("loaded details view")
-        
+        MoviesAPI().retrieveMovieDetails(movieID: selectedMovieID, completion:{ (movie) in
+            print(movie)
+            })
     }
     
 

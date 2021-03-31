@@ -32,16 +32,14 @@ class MoviesAPI: NSObject {
         
     }
     
-    func retrieveMovieDetails(movieID:String, completion: @escaping (_ movies: JSON) -> Void) {
+    func retrieveMovieDetails(movieID:String, completion: @escaping (_ movie: JSON) -> Void) {
         let api_key: String = "a3627ac6d1cea57a39a026d0d83a6a0a"
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=\(api_key))'&language=pt-BR)") else {return}
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)?api_key=\(api_key)") else {return}
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value)
-                let moviesJSON = json["results"]
-                completion(moviesJSON)
-                
+            let json = JSON(value)
+            completion(json)
             case .failure(let error):
                 print(error)
             }
