@@ -48,12 +48,8 @@ class MovieLibraryTests: XCTestCase {
                 expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 2000.0)
 
-    }
-    
-    func testHowManyMovies() {
-        
     }
     
 
